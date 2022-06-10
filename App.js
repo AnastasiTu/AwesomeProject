@@ -4,18 +4,14 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import {CustomDrawer} from './src/navigation/CustomDrawer';
 
-import { applyMiddleware} from 'redux';
-import {configureStore} from '@reduxjs/toolkit';
+import {applyMiddleware, createStore} from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import rootReducer from './src/stores/rootReducer';
 
 const Stack = createStackNavigator();
 
-const store = configureStore(
-	rootReducer,
-	applyMiddleware(thunk)
-)
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 export default function App() {
   return (
