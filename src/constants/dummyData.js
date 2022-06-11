@@ -1,7 +1,7 @@
 const myProfile = {
-    name: "ByProgrammers",
+    name: "User",
     profile_image: require("../../assets/images/profile.png"),
-    address: "No. 88, Jln Padungan, Kuching"
+    address: "No. 1, Москва"
 }
 
 const categories = [
@@ -48,7 +48,7 @@ const vegBiryani = {
   id: 3,
   name: 'Veg Biryani',
   description:
-    'A popular spice and vegetables mixed favoured rice dish which is typically prepared by layering the biryani gravy and basmati rice in flat bottom vessel.',
+    'A popular spice and vegetables mixed.',
   categories: [1, 2, 3],
   price: 10.99,
   calories: 78,

@@ -7,14 +7,14 @@ import {
 		TextInput,
 		FlatList
 } from 'react-native';
-import {HorizontalFoodCard, VerticalFoodCard} from '../components';
+import {HorizontalFoodCard, VerticalFoodCard} from '../../components';
 import {
 	FONTS,
 	SIZES,
 	COLORS,
 	icons,
 	dummyData
-} from '../constants';
+} from '../../constants';
 
 const Section = ({title, onPress, children}) => {
 	return(
@@ -77,7 +77,9 @@ const Home = () => {
 		let selectedMenu = dummyData.menu.find( a => a.id == menuTypeId)
 
 		//Set thw popular menu based on the categoryId
-		setPopular(selectedPopular?.list.filter(a => a.calories.includes(categoryId)))
+		setPopular(
+      selectedPopular?.list.filter(a => a.categories.includes(categoryId)),
+    );
 
 		//Set the recommended menu based om the categoryId
 		setRecommends(selectedRecommend?.list.filter(a => a.categories.includes(categoryId)))
@@ -90,52 +92,54 @@ const Home = () => {
 
 
 	function renderSearch() {
-		return(
-			<View
-				style={{
-					flexDirection: 'row',
-					height: 40,
-					alignItems: 'center',
-					marginHorizontal: SIZES.padding,
-					marginVertical: SIZES.base,
-					paddingHorizontal: SIZES.radius,
-					borderRadius: SIZES.radius, 
-					backgroundColor: COLORS.lightGray2
-				}}
-			>
-				{/* Icon */}
-				<Image
-					source={icons.search}
-					style={{
-						height: 20,
-						width: 20,
-						tintColor: COLORS.black
-					}}
-				/>
-				{/* Text Input */}
-				<TextInput
-					style={{
-						flex: 1,
-						marginLeft: SIZES.radius,
-						...FONTS.body3
-					}}
-					placeholder='search food...'
-				/>
-				{/* Filter Button */}
-				<TouchableOpacity
-					//onPress
-				>
-					<Image
-					  source={icons.filter}
-						style={{
-							height: 20,
-							width: 20,
-							tintColor: COLORS.black
-						}}
-					/>
-				</TouchableOpacity>
-			</View>
-		)
+		return (
+      <View
+        style={{
+          flexDirection: 'row',
+          height: 40,
+          alignItems: 'center',
+          marginHorizontal: SIZES.padding,
+          marginVertical: SIZES.base,
+          paddingHorizontal: SIZES.radius,
+          borderRadius: SIZES.radius,
+          backgroundColor: COLORS.lightGray2,
+        }}>
+        {/* Icon */}
+        <Image
+          source={icons.search}
+          style={{
+            height: 20,
+            width: 20,
+            justifyContent: 'center',
+            tintColor: COLORS.black,
+          }}
+        />
+        {/* Text Input */}
+        <TextInput
+          style={{
+            flex: 1,
+            paddingTop: 10,
+            marginLeft: SIZES.radius,
+            ...FONTS.body3,
+          }}
+          placeholder="поиск..."
+        />
+        {/* Filter Button */}
+        <TouchableOpacity
+        //onPress
+        >
+          <Image
+            source={icons.filter}
+            style={{
+              height: 20,
+              width: 20,
+              justifyContent: 'center',
+              tintColor: COLORS.black,
+            }}
+          />
+        </TouchableOpacity>
+      </View>
+    );
 	}
 
 	function renderMenuTypes() {
@@ -374,7 +378,7 @@ const Home = () => {
 					ListFooterComponent={
 						<View 
 							style={{
-								height: 200
+								height: 175
 							}}
 						>
 

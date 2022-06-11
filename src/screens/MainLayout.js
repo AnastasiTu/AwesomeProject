@@ -16,15 +16,15 @@ import Animated, {
 } from 'react-native-reanimated';
 import LinearGradient from 'react-native-linear-gradient'
 import { connect } from 'react-redux';
-import { setSelectedTab } from './stores/tab/tabActions';
+import { setSelectedTab } from '../stores/tab/tabActions';
 import {
 	Home,
 	Search,
 	CartTab,
 	Favourite,
 	Notification
-} from '../src';
-import {Header} from './components';
+} from '../screens/index.js';
+import {Header} from '../components';
 import {
 	COLORS,
 	FONTS,
@@ -32,7 +32,7 @@ import {
 	icons,
 	constants,
 	dummyData
-} from './constants';
+} from '../constants';
 import { Reanimated } from 'react-native-gesture-handler/lib/typescript/handlers/gestures/reanimatedWrapper';
 
 const TabButton = ({label, icon, isFocused, outerContainerStyle, innerContainerStyle, onPress})=> {
@@ -224,7 +224,7 @@ function MainLayout({drawerAnimationStyle, navigation, selectedTab, setSelectedT
         style={{
           flex: 1,
           backgroundColor: COLORS.white,
-          ...drawerAnimationStyle,
+          ...drawerAnimationStyle
         }}>
         {/* Header */}
         <Header
@@ -285,7 +285,7 @@ function MainLayout({drawerAnimationStyle, navigation, selectedTab, setSelectedT
 						keyExtractor={item => `${item.id}`}
 						renderItem={({item, index}) => {
 							return (
-                <Viev
+                <View
                   style={{
                     height: SIZES.height,
                     width: SIZES.width,
@@ -295,7 +295,7 @@ function MainLayout({drawerAnimationStyle, navigation, selectedTab, setSelectedT
                   {item.label == constants.screens.cart && <CartTab />}
                   {item.label == constants.screens.favourite && <Favourite />}
                   {item.label == constants.screens.notification && <Notification />}
-                </Viev>
+                </View>
               );
 						}}
 					/>
@@ -323,7 +323,7 @@ function MainLayout({drawerAnimationStyle, navigation, selectedTab, setSelectedT
             }}
           />
           {/* Tabs */}
-          <Viev
+          <View
             style={{
               flex: 1,
               flexDirection: 'row',
@@ -373,7 +373,7 @@ function MainLayout({drawerAnimationStyle, navigation, selectedTab, setSelectedT
               innerContainerStyle={notificationColorStyle}
               onPress={() => setSelectedTab(constants.screens.notification)}
             />
-          </Viev>
+          </View>
         </View>
       </Animated.View>
     );

@@ -1,29 +1,25 @@
-// Food
-import FoodDetail from "./Food/FoodDetail"
+import MainLayout from "./MainLayout"
+
+// Home
+import Home from "./Home/Home"
+
+// Search
+import Search from "./Search/Search";
 
 // Cart
-import Checkout from "./Cart/Checkout"
-import MyCart from "./Cart/MyCart"
-import Success from "./Cart/Success"
+import CartTab from "./Cart/CartTab"
 
-// Card
-import AddCard from "./Card/AddCard"
-import MyCard from "./Card/MyCard"
+// Favourite
+import Favourite from "./Favourite/Favourite";
 
-// Delivery
-import DeliveryStatus from "./Delivery/DeliveryStatus"
-import Map from "./Delivery/Map"
+// Notification
+import Notification from "./Notification/Notification"
 
 export {
-    FoodDetail,
-
-    Checkout,
-    MyCart,
-    Success,
-
-    AddCard,
-    MyCard,
-
-    DeliveryStatus,
-    Map
+    MainLayout,
+    Home,
+    Search,
+    CartTab,
+    Favourite,
+    Notification
 }
