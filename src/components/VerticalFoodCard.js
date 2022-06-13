@@ -22,7 +22,9 @@ const VerticalFoodCard = ({containerStyle, item, onPress}) => {
         borderRadius: SIZES.radius,
         backgroundColor: COLORS.lightGray2,
         ...containerStyle,
-      }}>
+      }}
+			/* onPress={onPress} */
+			>
       {/* Calories and Favourite */}
       <View style={{flexDirection: 'row'}}>
         {/* Calories */}
@@ -46,7 +48,7 @@ const VerticalFoodCard = ({containerStyle, item, onPress}) => {
             height: 20,
             tintColor: item.isFavourite ? COLORS.primary : COLORS.gray,
           }}
-        />
+				/>
       </View>
 
       {/* Image */}

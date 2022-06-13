@@ -5,6 +5,17 @@ import {createStackNavigator} from '@react-navigation/stack';
 import SplashScreen from 'react-native-splash-screen';
 
 import {OnBoarding, SignIn, SignUp, ForgotPassword, Otp} from './src';
+import {
+  FoodDetail,
+  Checkout,
+  MyCart,
+  Success,
+  AddCard,
+  MyCard,
+  DeliveryStatus,
+  Map
+} from './src/screens';
+
 import CustomDrawer from './src/navigation/CustomDrawer';
 
 import {applyMiddleware, createStore} from 'redux';
@@ -31,11 +42,19 @@ export default function App() {
           }}
           initialRouteName={'OnBoarding'}>
           <Stack.Screen name="OnBoarding" component={OnBoarding} />
+					<Stack.Screen name="Home" component={CustomDrawer} />
           <Stack.Screen name="SignIn" component={SignIn} />
           <Stack.Screen name="SignUp" component={SignUp} />
           <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
           <Stack.Screen name="Otp" component={Otp} />
-          <Stack.Screen name="Home" component={CustomDrawer} />
+          <Stack.Screen name="FoodDetail" component={FoodDetail} />
+          <Stack.Screen name="Checkout" component={Checkout} />
+          <Stack.Screen name="MyCart" component={MyCart} />
+          <Stack.Screen name="Success" component={Success} />
+          <Stack.Screen name="AddCard" component={AddCard} />
+          <Stack.Screen name="MyCard" component={MyCard} />
+          <Stack.Screen name="DeliveryStatus" component={DeliveryStatus} />
+          <Stack.Screen name="Map" component={Map} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

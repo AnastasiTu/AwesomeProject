@@ -5,35 +5,40 @@ import {
 } from "react-native";
 import { FONTS } from '../constants';
 
-const Header = ({containerStyle, title, leftComponent, rightComponent}) => {
-	return (
+const Header = ({
+  containerStyle,
+  title,
+  titleStyle, 
+	leftComponent,
+  rightComponent,
+}) => {
+  return (
     <View
       style={{
         flexDirection: 'row',
         ...containerStyle,
       }}>
-				{/* Left */}
-				{leftComponent}
-				{/* Title */}
-				<View
-					style={{
-						flex: 1,
-						alignItems: 'center',
-						justifyContent: 'center'
-					}}
-				>
-					<Text 
-						style={{
-							...FONTS.h3
-						}}
-					>
-						{title}
-					</Text>
-				</View>
-				{/* Right */}
-				{rightComponent}
-			</View>
+      {/* Left */}
+      {leftComponent}
+      {/* Title */}
+      <View
+        style={{
+          flex: 1,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+        <Text
+          style={{
+            ...FONTS.h3,
+						...titleStyle
+          }}>
+          {title}
+        </Text>
+      </View>
+      {/* Right */}
+      {rightComponent}
+    </View>
   );
-}
+};
 
 export default Header;

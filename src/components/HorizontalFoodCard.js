@@ -20,7 +20,9 @@ const HorizontalFoodCard = ({containerStyle, imageStyle, item, onPress}) => {
         borderRadius: SIZES.radius,
         backgroundColor: COLORS.lightGray2,
         ...containerStyle,
-      }}>
+      }}
+      /* onPress={onPress} */
+    >
       {/* Image */}
       <Image source={item.image} style={imageStyle} />
       {/* Info */}
