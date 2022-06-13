@@ -2,32 +2,19 @@ import React from 'react';
 import {
   View,
   Text,
-	Image,
-	StyleSheet
+	ScrollView,
 } from 'react-native';
-import { SwipeListView } from 'react-native-swipe-list-view';
-import { 
-	Header, 
-	IconButton,
-	CartQuantityButton,
-	StepperInput
-} from '../../components';
-import {
-  COLORS,
-  SIZES,
-  FONTS,
-  icons,
-  dummyData
-} from '../../constants';
+import {Header, IconButton, TextButton, CardItem} from '../../components';
+import { FONTS, SIZES, COLORS, icons, dummyData } from '../../constants';
 
 const MyCard = ({ navigation }) => {
 
-	const [myCartList, setMyCartList] = React.useState(dummyData.myCards)
+	const [selectedCard, setSelectedCard] = React.useState(null)
 
-	function renderHeader(){
+	function renderHeader() {
 		return (
       <Header
-        title="MY CART"
+        title="MY CARDS"
         containerStyle={{
           height: 50,
           marginHorizintal: SIZES.padding,
@@ -53,86 +40,106 @@ const MyCard = ({ navigation }) => {
             onPress={() => navigation.goBack()}
           />
         }
-        rightComponent={<CartQuantityButton quantity={3} />}
+        rightComponent={
+					<View
+						style={{
+							width: 40
+						}}
+					/>
+				}
       />
     );
 	}
 
-	function renderCartList() {
+	function renderMyCards() {
 		return(
-			<SwipeListView
-				data={myCartList}
-				keyExtractor={item => {`${item.id}`}}
-				contentContainerStyle={{
-					marginTop: SIZES.radius,
-					paddingHorizontal: SIZES.padding,
-					paddingBottom: SIZES.padding * 2
+			<View>
+				{dummyData.myCards.map((item, index) => {
+					return (
+            <CardItem
+              key={`MyCard-${item.id}`}
+              item={item}
+							isSelected={`${selectedCard?.key}-${selectedCard?.id}` == `MyCard-${item.id}`}
+              onPress={() => setSelectedCard({...item, key: 'MyCard'})}
+            />
+          );
+				})}
+			</View>
+		)
+	}
+
+	function renderAddNewCard() {
+		return(
+			<View
+				style={{
+					marginTop: SIZES.padding
 				}}
-				disableRightSwipe={true}
-				rightOpenValue={-75}
-				renderItem={(data, rowMap) => {
-					<View
-            style={{
-              height: 100,
-              backgroundColor: COLORS.lightGray2,
-              ...style.cartItemContainer,
-            }}>
-            {/* Food Image */}
-            <View
-              style={{
-                width: 90,
-                height: 100,
-                marginLeft: -10,
-              }}>
-              <Image
-                source={data.item.image}
-                resizeMode="contain"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  position: 'absolute',
-                  top: 10,
-                }}
-              />
-            </View>
-            {/* Food Info */}
-            <View
-              style={{
-                flex: 1,
-              }}>
-              <Text style={{...FONTS.body3}}>{data.item.name}</Text>
-              <Text style={{}}></Text>
-            </View>
-          </View>;
+			>
+				<Text style={{...FONTS.h3}}>Add new card</Text>
+
+				{dummyData.allCards.map((item, index) => {
+					return(
+						<CardItem
+							key={`NewCard-${item.id}`}
+							item={item}
+							isSelected={`${selectedCard?.key}-${selectedCard?.id}` == `NewCard-${item.id}`}
+							onPress={() => setSelectedCard({...item, key: 'NewCard'})}
+						/>
+					)
+				})}
+			</View>
+		)
+	}
+
+	function renderFooter() {
+		return(
+			<View
+				style={{
+					paddingTop: SIZES.radius,
+					paddingBottom: SIZES.padding,
+					paddingHorizontal: SIZES.padding
 				}}
-			/>
+			>
+				<TextButton
+					disabled={selectedCard == null}
+					buttonContainerStyle={{
+						height: 60,
+						borderRadius: SIZES.radius,
+						backgroundColor: selectedCard == null ? COLORS.gray : COLORS.primary
+					}}
+					label={selectedCard?.key == 'NewCard' ? 'Add' : 'Place your Order'}
+				/>
+			</View>
 		)
 	}
 
     return (
-        <View
-            style={{
-                flex: 1,
-								backgroundColor: COLORS.white
-            }}
-        >
-          {/* Header */}
+      <View
+        style={{
+          flex: 1,
+					backgroundColor: COLORS.white
+        }}>
+					{/* Header */}
 					{renderHeader()}
-					{/* Card List */}
-					{renderCartList()}
-					{/* Footer */}
-        </View>
-    )
-}
+					{/* Cards */}
+					<ScrollView
+						contentContainerStyle={{
+							flexGrow: 1,
+							marginTop: SIZES.radius,
+							paddingHorizontal: SIZES.padding,
+							paddingBottom: SIZES.radius
+						}}
+					>
+						{/* My Cards */}
+						{renderMyCards()}
 
-const style = StyleSheet.create({
-	cartItemContainer: {
-		flexDirection: 'row',
-		alignItems: 'center',
-		marginTop: SIZES.radius,
-		paddingHorizontal: SIZES.radius,
-		borderRadius: SIZES.radius
-	}
-})
+						{/* Add New Card */}
+						{renderAddNewCard()}
+					</ScrollView>
+					{/* Footer */}
+					{renderFooter()}
+      </View>
+    );
+}
 
 export default MyCard;

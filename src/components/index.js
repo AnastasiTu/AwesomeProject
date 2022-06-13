@@ -6,6 +6,8 @@ import TextButton from './TextButton';
 import CartQuantityButton from './CartQuantityButton';
 import LineDivider from './LineDivider';
 import StepperInput from './StepperInput';
+import FooterTotal from './FooterTotal';
+import CardItem from './CardItem';
 
 export {
   Header,
@@ -15,5 +17,7 @@ export {
   TextButton,
   CartQuantityButton,
   LineDivider,
-  StepperInput
+  StepperInput,
+  FooterTotal,
+  CardItem
 };
