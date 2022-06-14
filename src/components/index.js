@@ -8,6 +8,10 @@ import LineDivider from './LineDivider';
 import StepperInput from './StepperInput';
 import FooterTotal from './FooterTotal';
 import CardItem from './CardItem';
+import FormInput from './FormInput';
+import FormInputCheck from './FormInputCheck';
+import RadioButton from './RadioButton';
+import TextIconButton from './TextIconButton';
 
 export {
   Header,
@@ -19,5 +23,9 @@ export {
   LineDivider,
   StepperInput,
   FooterTotal,
-  CardItem
+  CardItem,
+  FormInput,
+  FormInputCheck,
+  RadioButton,
+  TextIconButton
 };
