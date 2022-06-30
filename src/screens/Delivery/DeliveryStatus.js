@@ -12,8 +12,10 @@ import {
   TextIconButton
 } from '../../components';
 import { FONTS, COLORS, SIZES, icons, constants  } from '../../constants';
+import {useNavigation} from '@react-navigation/native';
 
-const DeliveryStatus = ({ navigation }) => {
+const DeliveryStatus = () => {
+	const navigation = useNavigation();
 
 	const [currentStep, setCurrentStep] = React.useState(0)
 

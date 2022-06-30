@@ -6,8 +6,11 @@ import {
 } from 'react-native';
 import {Header, IconButton, TextButton, CardItem} from '../../components';
 import { FONTS, SIZES, COLORS, icons, dummyData } from '../../constants';
+import {useNavigation} from '@react-navigation/native';
 
-const MyCard = ({ navigation }) => {
+const MyCard = () => {
+
+	const navigation = useNavigation();
 
 	const [selectedCard, setSelectedCard] = React.useState(null)
 

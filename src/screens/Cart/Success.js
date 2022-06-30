@@ -7,8 +7,11 @@ import {
 } from 'react-native';
 import { TextButton } from '../../components';
 import { FONTS, SIZES, COLORS, images  } from '../../constants';
+import {useNavigation} from '@react-navigation/native';
 
-const Success = ({ navigation }) => {
+const Success = () => {
+
+	const navigation = useNavigation();
 
 	React.useEffect(() => {
 		const backHandler = BackHandler.addEventListener('hardwareBackPress', () => {

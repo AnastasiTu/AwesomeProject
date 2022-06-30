@@ -16,6 +16,7 @@ import {
 	icons,
 	dummyData
 } from '../../constants';
+import {useNavigation} from '@react-navigation/native';
 
 const Section = ({title, onPress, children}) => {
 	return(
@@ -58,6 +59,8 @@ const Section = ({title, onPress, children}) => {
 }
 
 const Home = () => {
+	const navigation = useNavigation();
+
   const [selectedCategoryId, setSelectedCategoryId] = React.useState(1);
   const [selectedMenuType, setSelectedMenuType] = React.useState(1);
   const [popular, setPopular] = React.useState([]);
@@ -208,7 +211,7 @@ const Home = () => {
                 width: 150,
               }}
               item={item}
-              onPress={() => console.log('HorizontalFoodCard')}
+              onPress={() => navigation.navigate('FoodDetail')}
             />
           )}
         />
@@ -233,7 +236,7 @@ const Home = () => {
                 marginRight: index == popular.length - 1 ? SIZES.padding : 0,
               }}
               item={item}
-              onPress={() => console.log('VerticalFoodCard')}
+              onPress={() => navigation.navigate('FoodDetail')}
             />
           )}
         />

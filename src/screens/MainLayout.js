@@ -33,6 +33,7 @@ import {
 	constants,
 	dummyData
 } from '../constants';
+import {useNavigation} from '@react-navigation/native';
 import { Reanimated } from 'react-native-gesture-handler/lib/typescript/handlers/gestures/reanimatedWrapper';
 
 const TabButton = ({label, icon, isFocused, outerContainerStyle, innerContainerStyle, onPress})=> {
@@ -80,7 +81,8 @@ const TabButton = ({label, icon, isFocused, outerContainerStyle, innerContainerS
   );
 }
 
-function MainLayout({drawerAnimationStyle, navigation, selectedTab, setSelectedTab}) {
+function MainLayout({drawerAnimationStyle, selectedTab, setSelectedTab}) {
+	const navigation = useNavigation();
 
 	const FlatListRaf = React.useRef()
 

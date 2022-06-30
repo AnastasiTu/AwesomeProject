@@ -21,7 +21,7 @@ const HorizontalFoodCard = ({containerStyle, imageStyle, item, onPress}) => {
         backgroundColor: COLORS.lightGray2,
         ...containerStyle,
       }}
-      /* onPress={onPress} */
+      onPress={onPress}
     >
       {/* Image */}
       <Image source={item.image} style={imageStyle} />

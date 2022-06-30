@@ -13,8 +13,11 @@ import {
 	FooterTotal
 } from '../../components';
 import { FONTS, SIZES, COLORS, icons, dummyData } from '../../constants';
+import {useNavigation} from '@react-navigation/native';
 
-const Checkout = ({ navigation, route }) => {
+const Checkout = ({ route }) => {
+
+	const navigation = useNavigation();
 	
 	const [selectedCard, setSelectedCard] = React.useState(null)
 

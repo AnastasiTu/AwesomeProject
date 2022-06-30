@@ -184,7 +184,7 @@ const OnBoarding = ({navigation}) => {
                     flex: 1,
                     alignItems: 'center',
                     justifyContent: 'flex-end',
-                    height: index == 1 ? '92%' : '100%',
+                    height: index == 1 ? '86%' : '100%',
                     width: '100%',
                   }}>
                   <Image

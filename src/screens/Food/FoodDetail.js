@@ -14,9 +14,12 @@ import {
   StepperInput
 } from '../../components';
 import { FONTS, COLORS, SIZES, icons, images, dummyData } from '../../constants';
+import {useNavigation} from '@react-navigation/native';
 
 
-const FoodDetail = ({navigation}) => {
+const FoodDetail = () => {
+	const navigation = useNavigation();
+
   const [foodItem, setFoodItem] = React.useState(dummyData.vegBiryani);
   const [selectedSize, setSelectedSize] = React.useState('');
   const [qty, setQty] = React.useState(1);

@@ -17,8 +17,11 @@ import {
 } from '../../components';
 import { FONTS, SIZES, COLORS, icons, images } from '../../constants';
 import { utils } from '../../utils';
+import {useNavigation} from '@react-navigation/native';
 
-const AddCard = ({ navigation, route }) => {
+const AddCard = ({ route }) => {
+
+	const navigation = useNavigation();
 
 	const [selectedCard, setSelectedCard] = React.useState(null)
 	const [cardNumber, setCardNumber] = React.useState('')

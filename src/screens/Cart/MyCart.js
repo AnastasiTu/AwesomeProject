@@ -20,8 +20,11 @@ import {
   icons,
   dummyData
 } from '../../constants';
+import {useNavigation} from '@react-navigation/native';
 
-const MyCart = ({ navigation }) => {
+const MyCart = () => {
+
+	const navigation = useNavigation();
 
 	const [myCartList, setMyCartList] = React.useState(dummyData.myCards)
 
