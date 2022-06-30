@@ -93,7 +93,7 @@ const MyCart = () => {
         }}
         disableRightSwipe={true}
         rightOpenValue={-75}
-        renderItem={(data, rowMap) => {
+        renderItem={(data, rowMap) => (
           <View
             style={{
               height: 100,
@@ -108,7 +108,7 @@ const MyCart = () => {
                 marginLeft: -10,
               }}>
               <Image
-                source={data.item.image}
+                source={data.item.icon}
                 resizeMode="contain"
                 style={{
                   width: '100%',
@@ -149,21 +149,21 @@ const MyCart = () => {
                 }
               }}
             />
-          </View>;
-        }}
+          </View>
+        )}
         renderHiddenItem={(data, rowMap) => (
           <IconButton
             containerStyle={{
               flex: 1,
               justifyContent: 'flex-end',
               backgraundColor: COLORS.primary,
-              ...styles.cartItemContainer
+              ...styles.cartItemContainer,
             }}
-						icon={icons.delete_icon}
-						iconStyle={{
-							marginRight: 10
-						}}
-						onPress={() => removeMyCartHandler(data.item.id)}
+            icon={icons.delete_icon}
+            iconStyle={{
+              marginRight: 10,
+            }}
+            onPress={() => removeMyCartHandler(data.item.id)}
           />
         )}
       />
