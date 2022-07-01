@@ -20,8 +20,8 @@ const MyCard = () => {
         title="MY CARDS"
         containerStyle={{
           height: 50,
-          marginHorizintal: SIZES.padding,
-          marginTop: 40,
+          marginHorizontal: SIZES.padding,
+          marginTop: 40
         }}
         leftComponent={
           <IconButton
@@ -43,13 +43,9 @@ const MyCard = () => {
             onPress={() => navigation.goBack()}
           />
         }
-        rightComponent={
-					<View
-						style={{
-							width: 40
-						}}
-					/>
-				}
+        rightComponent={<View style={{
+					width: 40
+				}} />}
       />
     );
 	}

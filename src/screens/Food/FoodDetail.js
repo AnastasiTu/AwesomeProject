@@ -53,7 +53,12 @@ const FoodDetail = () => {
             onPress={() => navigation.goBack()}
           />
         }
-        rightComponent={<CartQuantityButton quantity={3} />}
+        rightComponent={
+          <CartQuantityButton
+            qty={3}
+            onPress={() => navigation.navigate('MyCart')}
+          />
+        }
       />
     );
   }

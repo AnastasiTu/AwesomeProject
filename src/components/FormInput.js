@@ -83,7 +83,7 @@ const FormInput = ({
 					autoCompleteType={autoCompleteType}
 					autoCapitalize={autoCapitalize}
 					maxLength={maxLength}
-					onChangeText={(text) => onChange(text)}
+					onChangeText={(text) => onChange(text)} //ошибка тут! Исправить. Должна передаваться строка!!
 				/>
 				{
 					appendComponent

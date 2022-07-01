@@ -50,7 +50,7 @@ const AddCard = ({ route }) => {
         title="ADD NEW CARD"
         containerStyle={{
           height: 50,
-          marginHorizintal: SIZES.padding,
+          marginHorizontal: SIZES.padding,
           marginTop: 40,
         }}
         leftComponent={
@@ -165,11 +165,7 @@ const AddCard = ({ route }) => {
           value={cardNumber}
           onChange={value => {
             setCardNumber(
-              value
-                .replace(/\s/g, '')
-                .replase(/(\d{4})/g, '$1 ')
-                .trim(),
-            );
+              value.replace(/\s/g, '').replase(/(\d{4})/g, '$1 ').trim())
             utils.validateInput(value, 19, setCardNumberError);
           }}
           errorMsg={cardNumberError}
@@ -266,7 +262,7 @@ const AddCard = ({ route }) => {
           buttonContainerStyle={{
             height: 60,
             borderRadius: SIZES.radius,
-            backgraundColor: isEnableAddCard() ? COLORS.primary : COLORS.transparentPrimary
+            backgroundColor: isEnableAddCard() ? COLORS.primary : COLORS.transparentPrimary
           }}
           onPress={() => navigation.goBack()}
         />

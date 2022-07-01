@@ -15,6 +15,7 @@ const Header = ({
   return (
     <View
       style={{
+				height: 60,
         flexDirection: 'row',
         ...containerStyle,
       }}>

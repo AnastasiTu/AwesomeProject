@@ -26,14 +26,14 @@ const MyCart = () => {
 
 	const navigation = useNavigation();
 
-	const [myCartList, setMyCartList] = React.useState(dummyData.myCards)
+	const [myCartList, setMyCartList] = React.useState(dummyData.myCart)
 
 	//Handler
 	function updateQuantityHandler(newQty, id) {
 		const newMyCartList = myCartList.map(cl => (
-			cl.id === id ? {...cl, qty: newQty } : cl
+			cl.id === id ? { ...cl, qty: newQty } : cl
 		))
-		setMyCartList(newMyCartList)
+		setMyCartList(newMyCartList);
 	}
 
 	function removeMyCartHandler(id) {
@@ -51,7 +51,7 @@ const MyCart = () => {
         title="MY CART"
         containerStyle={{
           height: 50,
-          marginHorizintal: SIZES.padding,
+          marginHorizontal: SIZES.padding,
           marginTop: 40,
         }}
         leftComponent={
@@ -74,7 +74,7 @@ const MyCart = () => {
             onPress={() => navigation.goBack()}
           />
         }
-        rightComponent={<CartQuantityButton quantity={3} />}
+        rightComponent={<CartQuantityButton qty={3} />}
       />
     );
 	}
@@ -83,9 +83,7 @@ const MyCart = () => {
 		return (
       <SwipeListView
         data={myCartList}
-        keyExtractor={item => {
-          `${item.id}`;
-        }}
+        key={(item, index) => item.key}
         contentContainerStyle={{
           marginTop: SIZES.radius,
           paddingHorizontal: SIZES.padding,
@@ -108,7 +106,7 @@ const MyCart = () => {
                 marginLeft: -10,
               }}>
               <Image
-                source={data.item.icon}
+                source={data.item.image}
                 resizeMode="contain"
                 style={{
                   width: '100%',
@@ -156,7 +154,7 @@ const MyCart = () => {
             containerStyle={{
               flex: 1,
               justifyContent: 'flex-end',
-              backgraundColor: COLORS.primary,
+              backgroundColor: COLORS.primary,
               ...styles.cartItemContainer,
             }}
             icon={icons.delete_icon}

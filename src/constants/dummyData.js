@@ -220,7 +220,6 @@ const fromLocs = [
 
 export default {
     vegBiryani,
-    
     myProfile,
     categories,
     menu,
